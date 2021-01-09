@@ -12,8 +12,9 @@ def a(n):
   return 需要的答案
 ```
 <img src = './bfs/bt.jpg' width = '40%'>  
-* [binary tree(preorder + recursion)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/104.py)
-* [Fibonacci number(滾動數組優化)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/509.py)
+
+* [binary tree(preorder + recursion)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/104.py)  
+* [Fibonacci number(滾動數組優化)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/509.py)  
 
 ## Breadth First Search
 拿來找最短路徑的演算法  
