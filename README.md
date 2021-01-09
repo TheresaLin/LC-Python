@@ -11,14 +11,13 @@ def a(n):
   要做什麼事 = a()
   return 需要的答案
 ```
+<img src = './bfs/bt.jpg' width = '40%'>  
 * [binary tree(preorder + recursion)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/104.py)
 * [Fibonacci number(滾動數組優化)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/509.py)
 
 ## Breadth First Search
-拿來找最短路徑的演算法 
-
-
-
+拿來找最短路徑的演算法  
+<img src = './bfs/jupyter.jpg' width = '40%'>  
 ```py
 d = [0]* 8    #d是存到從start到自己的距離 array8個位置從0開始
 q = []        #q是存目前要拜訪得節點
