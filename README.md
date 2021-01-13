@@ -8,9 +8,9 @@
 ```py
 dic = {}
 dic[key] = value
-
 ```
 * [dictionary + list](./Leetcode/1133.py)
+* [找某數在list的位置(有和沒有dictionary的方法)](./Leetcode/1.py)
 
 ## Recursion
 1. if return 最基本的case
