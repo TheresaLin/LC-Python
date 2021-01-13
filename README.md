@@ -1,5 +1,17 @@
 # Leetcode解題思維
 
+## data Structure
+### Dictionary
+`{[key1 : value1], [key2 : value2]}`
+
+如何操作
+```py
+dic = {}
+dic[key] = value
+
+```
+
+
 ## Recursion
 1. if return 最基本的case
 2. call function 
