@@ -10,7 +10,7 @@ dic = {}
 dic[key] = value
 
 ```
-
+* [dictionary + list](./Leetcode/1133.py)
 
 ## Recursion
 1. if return 最基本的case
@@ -25,8 +25,8 @@ def a(n):
 ```
 <img src = './bfs/bt.jpg' width = '40%'>  
 
-* [binary tree(preorder + recursion)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/104.py)  
-* [Fibonacci number(滾動數組優化)](https://github.com/TheresaLin/LC-sol/blob/main/Leetcode/509.py)  
+* [binary tree(preorder + recursion)](./Leetcode/104.py)  
+* [Fibonacci number(滾動數組優化)](./Leetcode/509.py)  
 
 ## Breadth First Search
 拿來找最短路徑的演算法  
@@ -51,4 +51,4 @@ while q:
                 visited.add(i)
                 d[i.name] = d[head.name] +1
 ```
-* [bfs的基本練習](https://github.com/TheresaLin/LC-sol/blob/main/bfs/bfs.ipynb)
+* [bfs的基本練習](./bfs/bfs.ipynb)
