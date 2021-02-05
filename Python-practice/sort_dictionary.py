@@ -3,6 +3,10 @@ def sort_dict(dictionary):
     # {'key1': [..., a], 'key2': [..., b]}
     # a needs to be smaller than b
     # please finish this function
+    
+    #use items()to flatten the list
+    dictionary = sorted(d.items(), key=lambda e:e[1][1])
+
     return dictionary
 
 if __name__ == '__main__':
