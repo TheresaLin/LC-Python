@@ -18,13 +18,13 @@ def two_cnt_sum(l, target):
     for i in count:
         for j in count:
             if count[i]+count[j] == target:
-                if count[i]>count[j]:
+                if j > i:
                     res.append([i,j])
 
     return res
 
 if __name__ == '__main__':
-    ipt = [1, 2, 3, 2, 5, 1, 7, 2, 1, 9, 6, 3]
+    ipt = [2,2,3,4,3,3,4,4,1,1,5,5]
     target = 5
     res = two_cnt_sum(ipt, target)
     print(res)
