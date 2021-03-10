@@ -7,19 +7,21 @@ def two_cnt_sum(l, target):
     
         
     res = []
-    
+    count = {}
+    n = 0
     for i in l:
-        for j in l:
-            if i+j == target:
-                if i>j:
-                    res.append(j)
-                    res.append(i)
-                else:
-                    res.append(i)
-                    res.append(j)
-                    return res
-            else:
-                continue
+        if i in count: 
+            count[i] += 1
+        else:
+            count[i] = n+1
+    
+    for i in count:
+        for j in count:
+            if count[i]+count[j] == target:
+                if count[i]>count[j]:
+                    res.append([i,j])
+
+    return res
 
 if __name__ == '__main__':
     ipt = [1, 2, 3, 2, 5, 1, 7, 2, 1, 9, 6, 3]
