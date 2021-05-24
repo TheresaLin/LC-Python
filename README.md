@@ -9,8 +9,8 @@
 dic = {}
 dic[key] = value
 ```
-* [dictionary + list](./Leetcode/1133.py)
-* [找某數在list的位置(有和沒有dictionary的方法)](./Leetcode/1.py)
+* [dictionary + list](./Leetcode-Python/1133.py)
+* [找某數在list的位置(有和沒有dictionary的方法)](./Leetcode-Python/1.py)
 
 ## Recursion
 1. if return 最基本的case
@@ -25,8 +25,8 @@ def a(n):
 ```
 <img src = './bfs/bt.jpg' width = '40%'>  
 
-* [binary tree(preorder + recursion)](./Leetcode/104.py)  
-* [Fibonacci number(滾動數組優化)](./Leetcode/509.py)  
+* [binary tree(preorder + recursion)](./Leetcode-Python/104.py)  
+* [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)  
 
 ## Breadth First Search
 拿來找最短路徑的演算法  
