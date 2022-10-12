@@ -1,6 +1,6 @@
 # Leetcode解題思維
 
-## data Structure
+## Data Structure
 ### Dictionary
 `{[key1 : value1], [key2 : value2]}`
 
@@ -9,8 +9,17 @@
 dic = {}
 dic[key] = value
 ```
-* [dictionary + list](./Leetcode-Python/1133.py)
-* [找某數在list的位置(有和沒有dictionary的方法)](./Leetcode-Python/1.py)
+* dictionary + list：[1133. Largest Unique Number](./Leetcode-Python/1133.py)
+* 找某數在list的位置(有和沒有dictionary的方法)：[1. Two Sum](./Leetcode-Python/1.py)
+
+## Two Pointers
+* 相向：判斷是否為回文串 [125. Valid Palindrome](./Leetcode-Python/125.py)
+* 背向(出題頻率較低)：找出最長的回為串 longest substring
+```py
+left, right = 0, len(s)-1
+while left < right :
+  判斷
+```
 
 ## Recursion
 1. if return 最基本的case
