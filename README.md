@@ -43,6 +43,8 @@ time: O(nlogn), space: O(n)
 1. 取中心點 pivot，先局部有序後整體排序
 2. 額外空間o(n)的耗費
 3. 較穩定的排序
+4. 運行模式divide and conquer：先不斷切一半（不斷recursion）完以後，進行merge，在merge過程中排列，比較左右邊然後把小的放進temp的list
+
 
 |             |   time   | space | stable |
 | ----------- | -------- | ----- | ------ |
