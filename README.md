@@ -38,6 +38,46 @@ space: O(1)
 
 <img src = './img/quick_sort.png'> 
 
+### Quick Select 
+time: 
+space: 
+
+[5. Kth Largest Element](./Lintcode-Python/5.py), 
+[80. Median](./Lintcode-Python/80.py)
+```py
+    def kth_largest_element(self, k: int, nums: List[int]) -> int:
+        n = len(nums)       
+        k = 定義k在index的位置，若是算k大就要用len(n) - k，若是說k小就要k - 1
+        if not nums:
+            return -1
+        return self.quick_select(nums, 0, n - 1, k)
+
+    def quick_select(self, nums, start, end, k):
+        if start == end:
+            return nums[start]
+        left, right = start, end
+        # 一律找出nums的中心點
+        mid = nums[(start + end) // 2]
+        # 方法跟quick sort很像
+        while left <= right:
+            # 先把nums[left] < mid都跳過，直到找到nums[left] > mid
+            while left <= right and nums[left] < mid:
+                left += 1
+            # 先把nums[right] > mid都跳過，直到找到nums[right] < mid
+            while left <= right and nums[right] > mid:
+                right -= 1
+            # 把找到的nums[left] > mid和nums[right] < mid對調
+            if left <= right:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+                right -= 1
+        # 假如k小在右側就搜索右側的範圍，否則搜索左側
+        if k  <= right:
+            return self.quick_select(nums, start, right, k)
+        if k  >= left:
+            return self.quick_select(nums, left,  end, k)
+        return nums[k]
+```
 ### Merge Sort 歸併排序 
 time: O(nlogn), space: O(n)
 1. 取中心點 pivot，先局部有序後整體排序

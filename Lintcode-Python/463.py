@@ -49,6 +49,7 @@ class Solution:
         # write your code here
         if not a:
             return 
+        # temp 是在merge排序過程中的暫時list，大小需要跟a list一樣
         temp = [0] * len(a)
         
         self.merge_sort(a, 0, len(a)-1, temp)
