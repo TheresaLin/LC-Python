@@ -21,12 +21,25 @@ O(log n):
 ## Algorithms
 ### Two Pointers 雙指針
 * 相向：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串）, [1. Two Sum](./Leetcode-Python/1.py)
-* 背向(出題頻率較低)：找出最長的回為串 longest substring
 ```py
 left, right = 0, len(s)-1
 while left < right :
   判斷進而對left和right做加減
 ```
+* 背向(出題頻率較低)：找出最長的回為串 longest substring
+* 同向：[283. Move Zeroes](./Leetcode-Python/283.py)
+一個slow pointer，一個fast pointer
+```py
+slow = 0
+
+for fast in range(len(nums)):
+    if fast 找到 and slow 也找到:
+        swip之類的
+    if slow 沒找到:
+        slow += 1
+```
+
+
 ### Quick Sort 快速排序 
 time: O(nlogn) 理想狀態，最壞到O(n^2)
 space: O(1)
@@ -85,6 +98,7 @@ time: O(nlogn), space: O(n)
 3. 較穩定的排序
 4. 運行模式divide and conquer：先不斷切一半（不斷recursion）完以後，進行merge，在merge過程中排列，比較左右邊然後把小的放進temp的list
 
+* [463. Sort Integers](./Lintcode-Python/463.py)
 
 |             |   time   | space | stable |
 | ----------- | -------- | ----- | ------ |
