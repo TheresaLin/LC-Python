@@ -20,15 +20,23 @@ O(log n):
 
 ## Algorithms
 ### Two Pointers 雙指針
-* 相向：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串）, [1. Two Sum](./Leetcode-Python/1.py)
+* 相向：
+Time:O(n)
+    1. Reverse: 題目不多
+    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串）, [1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)
+    3. Partition(兩位數相關變形題)：
 ```py
 left, right = 0, len(s)-1
 while left < right :
   判斷進而對left和right做加減
 ```
-* 背向(出題頻率較低)：找出最長的回為串 longest substring
-* 同向：[283. Move Zeroes](./Leetcode-Python/283.py)
-一個slow pointer，一個fast pointer
+* 背向(出題頻率較低)：
+    1. 找出最長的回為串: Longest Palindromic Substring 的中心線枚舉算法
+    2. 二分法中的Find K Closest Elements
+* 同向：
+    1. 一個slow pointer，一個fast pointer: [283. Move Zeroes](./Leetcode-Python/283.py)
+    2. Sliding Windowc滑動窗口：
+
 ```py
 slow = 0
 
