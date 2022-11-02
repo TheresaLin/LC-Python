@@ -11,7 +11,8 @@ dic[key] = value
 ```
 * dictionary + list：[1133. Largest Unique Number](./Leetcode-Python/1133.py)
 * 找某數在list的位置(有和沒有dictionary的方法)：[1. Two Sum](./Leetcode-Python/1.py)
-
+### Set:
+* [607. Two Sum III - Data structure design](./Lintcode-Python/607.py)
 ## Time Complexity and Space Complexity
 ### Time Complexity:
 O(log n): 
@@ -23,7 +24,7 @@ O(log n):
 * 相向：
 Time:O(n)
     1. Reverse: 題目不多
-    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串）, [1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)
+    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[]
     3. Partition(兩位數相關變形題)：
 ```py
 left, right = 0, len(s)-1
@@ -48,7 +49,7 @@ for fast in range(len(nums)):
 ```
 
 
-### Quick Sort 快速排序 
+### Quick Sort 快速排序：Divide and Conquer 分而治之
 time: O(nlogn) 理想狀態，最壞到O(n^2)
 space: O(1)
 1. 取中心點 pivot，整體有序再局部遞歸排序
@@ -59,6 +60,18 @@ space: O(1)
 
 <img src = './img/quick_sort.png'> 
 
+### Partition：
+* [31. Partition Array](./Lintcode-Python/31.py)
+
+<img src = './img/partition.png'> 
+
+### Quick Sort (Partition)：
+time: O(NlogK)
+space: O(logK)
+類似於快速排序，差別在於：quick sort的中間值是<span style="color:red">index/2</span>，partition是 <span style="color:red">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
+* 顏色分類：
+* [143. Sort Colors II](./Lintcode-Python/143.py)
+* [正負數交錯](./Lintcode-Python/144.py)
 ### Quick Select 
 time: 
 space: 
@@ -68,7 +81,7 @@ space:
 ```py
     def kth_largest_element(self, k: int, nums: List[int]) -> int:
         n = len(nums)       
-        k = 定義k在index的位置，若是算k大就要用len(n) - k，若是說k小就要k - 1
+        k = 定義k在index的位置，若是算第k大就要用len(nums) - k，若是說k小就要k - 1
         if not nums:
             return -1
         return self.quick_select(nums, 0, n - 1, k)
@@ -94,6 +107,8 @@ space:
                 right -= 1
         # 假如k小在右側就搜索右側的範圍，否則搜索左側
         if k  <= right:
+            # index則是從start到right
+            # 因爲在最後交換位置後，right-1 left+1，right會跑到left左邊
             return self.quick_select(nums, start, right, k)
         if k  >= left:
             return self.quick_select(nums, left,  end, k)
@@ -113,14 +128,20 @@ time: O(nlogn), space: O(n)
 | Quick Sort  | O(nlogn) |   1   |   X    |
 | Merge Sort  | O(nlogn) |  O(n) |   O    |
 ### Recursion
-1. if return 最基本的case
-2. call function 
-3. return 需要的答案
+遞歸四要素
+1. 遞歸的定義
+2. 遞歸的分解
+3. 遞歸的出口
+4. call自己
+
 ```py
 def a(n):
-  if (base case): 
-    return
-  要做什麼事 = a()
+    if (遞歸的出口): 
+        return
+    分解通常都砍半之類的
+    做要做的事
+    # 回call function
+    self.a(n)    
   return 需要的答案
 ```
 <img src = './bfs/bt.jpg' width = '40%'>  
@@ -129,7 +150,7 @@ def a(n):
 * [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)
 * [Classical Binary Search](./Lintcode-Python/457.py)
 
-#### Binary Search
+#### Binary Search：Decrease and Conquer 減而治之
 二分法：
 不使用recursion的解法，用while：
 時間複雜度：O(logn)
