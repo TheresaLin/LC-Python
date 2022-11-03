@@ -69,7 +69,8 @@ space: O(1)
 time: O(NlogK)
 space: O(logK)
 類似於快速排序，差別在於：quick sort的中間值是<span style="color:red">index/2</span>，partition是 <span style="color:red">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
-* 顏色分類：
+
+顏色分類：
 * [143. Sort Colors II](./Lintcode-Python/143.py)
 * [正負數交錯](./Lintcode-Python/144.py)
 ### Quick Select 
@@ -151,10 +152,15 @@ def a(n):
 * [Classical Binary Search](./Lintcode-Python/457.py)
 
 #### Binary Search：Decrease and Conquer 減而治之
+
 二分法：
-不使用recursion的解法，用while：
-時間複雜度：O(logn)
-每次搜索的範圍都縮小一半
+1. 是在list已經sort的情況下實現 
+2. 不使用recursion的解法，用while：時間複雜度：O(logn)
+3. 每次搜索的範圍都縮小一半
+
+只要有以下關鍵詞，很有可能是要用binary search
+* target, sorted, array
+
 九章模板：
 ```py
 class Solution:
@@ -168,12 +174,14 @@ class Solution:
         # 但是在 last position of target 的情况下会出现死循环
         # 样例：nums=[1，1] target = 1
         # 为了统一模板，我们就都采用 start + 1 < end，就保证不会出现死循环
+        # 能理解為start和end在隔壁的時候結束循環
         while start + 1 < end:
             # python 没有 overflow 的问题，直接 // 2 就可以了
             mid = (start + end) // 2
             
             # > , =, < 的逻辑先分开写，然后在看看 = 的情况是否能合并到其他分支里
             if nums[mid] < target:
+                # 代表target在mid的右邊，所以把start point設為mid
                 # 写作 start = mid + 1 也是正确的
                 # 只是可以偷懒不写，因为不写也没问题，不会影响时间复杂度
                 # 不写的好处是，万一你不小心写成了 mid - 1 你就错了
@@ -182,6 +190,7 @@ class Solution:
                 # 如果是first position則是end=mid, 如果是last position則是start=mid
                 end = mid
             else: 
+                # 代表target在mid的左邊，所以把end  point設為mid
                 # 写作 end = mid - 1 也是正确的
                 # 只是可以偷懒不写，因为不写也没问题，不会影响时间复杂度
                 # 不写的好处是，万一你不小心写成了 mid + 1 你就错了
@@ -198,8 +207,11 @@ class Solution:
         
         return -1
 ```
-使用模板就方便很多：[457. Classical Binary Search](./Lintcode-Python/457.py)、
-[458. Last Position of Target](./Lintcode-Python/458.py)、[14. First Position of Target](./Lintcode-Python/14.py)
+使用模板就方便很多：
+* [457. Classical Binary Search](./Lintcode-Python/457.py)
+* [458. Last Position of Target](./Lintcode-Python/458.py)
+* [14. First Position of Target](./Lintcode-Python/14.py)
+* [447. Search in a Big Sorted Array](./Lintcode-Python/447.py)
 
 ### Breadth First Search
 拿來找最短路徑的演算法  
