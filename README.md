@@ -209,13 +209,18 @@ class Solution:
 ```
 使用模板就方便很多：
 * [457. Classical Binary Search](./Lintcode-Python/457.py)
-* [458. Last Position of Target](./Lintcode-Python/458.py)
-* [14. First Position of Target](./Lintcode-Python/14.py)
-* [447. Search in a Big Sorted Array](./Lintcode-Python/447.py)
+* 找最後一個出現的target(有重複值): [458. Last Position of Target](./Lintcode-Python/458.py)
+* 找第一個出現的target(有重複值): [14. First Position of Target](./Lintcode-Python/14.py)
+* 變化題：[447. Search in a Big Sorted Array](./Lintcode-Python/447.py)
+* 變化題：[460. Find K Closest Elements](./Lintcode-Python/460.py)
+* matrix兩個binary search、二維轉化成一維：[28. Search a 2D Matrix](./Lintcode-Python/28.py)
+* 找山頂，數據是漸大再漸小(沒有重複值): [585. Maximum Number in Mountain Sequence](./Lintcode-Python/585.py)
+* 找起點最小值，數據是漸大再斷層再漸大(沒有重複值): [159. Find Minimum in Rotated Sorted Array](./Lintcode-Python/159.py)
+* 數據和159題一樣，只是這次找target instead of minimum: [62. Search in Rotated Sorted Array](./Lintcode-Python/62.py)
 
 ### Breadth First Search
 拿來找最短路徑的演算法  
-<img src = './bfs/jupyter.jpg' width = '40%'>  
+<img src = './bfs/jupyter.jpg' width = '60%'>  
 ```py
 d = [0]* 8    #d是存到從start到自己的距離 array8個位置從0開始
 q = []        #q是存目前要拜訪得節點
