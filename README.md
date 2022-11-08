@@ -128,28 +128,7 @@ time: O(nlogn), space: O(n)
 | ----------- | -------- | ----- | ------ |
 | Quick Sort  | O(nlogn) |   1   |   X    |
 | Merge Sort  | O(nlogn) |  O(n) |   O    |
-### Recursion
-遞歸四要素
-1. 遞歸的定義
-2. 遞歸的分解
-3. 遞歸的出口
-4. call自己
 
-```py
-def a(n):
-    if (遞歸的出口): 
-        return
-    分解通常都砍半之類的
-    做要做的事
-    # 回call function
-    self.a(n)    
-  return 需要的答案
-```
-<img src = './bfs/bt.jpg' width = '40%'>  
-
-* [binary tree(preorder + recursion)](./Leetcode-Python/104.py)  
-* [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)
-* [Classical Binary Search](./Lintcode-Python/457.py)
 
 #### Binary Search：Decrease and Conquer 減而治之
 
@@ -213,14 +192,18 @@ class Solution:
 * 找第一個出現的target(有重複值): [14. First Position of Target](./Lintcode-Python/14.py)
 * 變化題：[447. Search in a Big Sorted Array](./Lintcode-Python/447.py)
 * 變化題：[460. Find K Closest Elements](./Lintcode-Python/460.py)
-* matrix兩個binary search、二維轉化成一維：[28. Search a 2D Matrix](./Lintcode-Python/28.py)
+* matrix兩個binary search、二維轉化成一維（兩種解）  ：[28. Search a 2D Matrix](./Lintcode-Python/28.py)
 * 找山頂，數據是漸大再漸小(沒有重複值): [585. Maximum Number in Mountain Sequence](./Lintcode-Python/585.py)
+* 有很多山峰，找任一山峰：[75. Find Peak Element](./Lintcode-Python/75.py)
 * 找起點最小值，數據是漸大再斷層再漸大(沒有重複值): [159. Find Minimum in Rotated Sorted Array](./Lintcode-Python/159.py)
-* 數據和159題一樣，只是這次找target instead of minimum: [62. Search in Rotated Sorted Array](./Lintcode-Python/62.py)
+* 高頻題：數據和159題一樣，只是這次找target instead of minimum: [62. Search in Rotated Sorted Array](./Lintcode-Python/62.py)
+* 難題：切割長度不等的木頭，找木頭的最大長度: [183. Wood Cut](./Lintcode-Python/183.py)
 
 ### Breadth First Search
-拿來找最短路徑的演算法  
-<img src = './bfs/jupyter.jpg' width = '60%'>  
+拿來找最短路徑的演算法
+
+<img src = './bfs/jupyter.jpg' width = '40%'>  
+
 ```py
 d = [0]* 8    #d是存到從start到自己的距離 array8個位置從0開始
 q = []        #q是存目前要拜訪得節點
@@ -241,4 +224,60 @@ while q:
                 visited.add(i)
                 d[i.name] = d[head.name] +1
 ```
+
 * [bfs的基本練習](./bfs/bfs.ipynb)
+* 有單隊列、雙隊列、DummyNode的解法：[69. Binary Tree Level Order Traversal](./Lintcode-Python/69.py)
+
+<img src = './img/DFSvsBFS.jpg' width = '60%'>  
+
+### Depth First Search
+1. 可以用recursion實現
+2. 也可以不用遞歸函數，自己通過一個手動創建的stack進行操作
+3. 一定會使用到backtracking，到最深層的之後，會回朔到上一層
+
+* 遍歷法(Traversal)和分治法(Divide and Conquer):
+遍歷法: 親力親為，拿著一個記事本走片所有節點
+分治法: 分配小弟去做子任務，自己金行結果匯總
+
+Binary Tree的分治法模板：
+
+```py
+def divideConquer(self, root):
+    if not root:
+        return
+    '''
+    if not root.left and not root.right:
+        處理到底了，葉子應該返回的結果
+        如果葉子的返回結果可以通過兩個空節點的返回中得到
+        就可以省略這段
+    '''   
+
+    左子葉返回結果 = divideConquer(root.left)
+    右子葉返回結果 = divideConquer(root.right)
+    整棵樹的結果 = 按照一定方法合併左右子葉的結果
+
+    return 整棵樹的結果
+```
+
+### Recursion
+遞歸四要素
+1. 遞歸的定義
+2. 遞歸的分解
+3. 遞歸的出口
+4. call自己
+
+```py
+def a(n):
+    if (遞歸的出口): 
+        return
+    分解通常都砍半之類的
+    做要做的事
+    # 回call function
+    self.a(n)    
+  return 需要的答案
+```
+<img src = './bfs/bt.jpg' width = '40%'>  
+
+* [binary tree(preorder + recursion)](./Leetcode-Python/104.py)  
+* [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)
+* [Classical Binary Search](./Lintcode-Python/457.py)
