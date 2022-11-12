@@ -11,20 +11,25 @@ dic[key] = value
 ```
 * dictionary + list：[1133. Largest Unique Number](./Leetcode-Python/1133.py)
 * 找某數在list的位置(有和沒有dictionary的方法)：[1. Two Sum](./Leetcode-Python/1.py)
+
 ### Set:
 * [607. Two Sum III - Data structure design](./Lintcode-Python/607.py)
+
 ## Time Complexity and Space Complexity
+
 ### Time Complexity:
 O(log n): 
 1. binary search: 猜數字遊戲並且每次都中間切割
 2. heap(queue)先進先出FIFO
 
+
 ## Algorithms
-### Two Pointers 雙指針
+### <span style="color:Coral">Two Pointers 雙指針</span>
+
 * 相向：
 Time:O(n)
     1. Reverse: 題目不多
-    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[]
+    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[382. Triangle Count](./Lintcode-Python/382.py)
     3. Partition(兩位數相關變形題)：
 ```py
 left, right = 0, len(s)-1
@@ -49,7 +54,8 @@ for fast in range(len(nums)):
 ```
 
 
-### Quick Sort 快速排序：Divide and Conquer 分而治之
+### <span style="color:Coral">Quick Sort 快速排序</span>：Divide and Conquer 分而治之
+
 time: O(nlogn) 理想狀態，最壞到O(n^2)
 space: O(1)
 1. 取中心點 pivot，整體有序再局部遞歸排序
@@ -60,20 +66,25 @@ space: O(1)
 
 <img src = './img/quick_sort.png'> 
 
-### Partition：
+
+### <span style="color:Coral">Partition</span>：
+
 * [31. Partition Array](./Lintcode-Python/31.py)
 
 <img src = './img/partition.png'> 
 
-### Quick Sort (Partition)：
+
+### <span style="color:Coral">Quick Sort (Partition)</span>：
 time: O(NlogK)
 space: O(logK)
-類似於快速排序，差別在於：quick sort的中間值是<span style="color:red">index/2</span>，partition是 <span style="color:red">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
+類似於快速排序，差別在於：quick sort的中間值是<span style="color:green">index/2</span>，partition是 <span style="color:green">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
 
 顏色分類：
 * [143. Sort Colors II](./Lintcode-Python/143.py)
 * [正負數交錯](./Lintcode-Python/144.py)
-### Quick Select 
+
+
+### <span style="color:Coral">Quick Select </span>
 time: 
 space: 
 
@@ -115,7 +126,7 @@ space:
             return self.quick_select(nums, left,  end, k)
         return nums[k]
 ```
-### Merge Sort 歸併排序 
+### <span style="color:Coral">Merge Sort 歸併排序 </span>
 time: O(nlogn), space: O(n)
 1. 取中心點 pivot，先局部有序後整體排序
 2. 額外空間o(n)的耗費
@@ -199,7 +210,7 @@ class Solution:
 * 高頻題：數據和159題一樣，只是這次找target instead of minimum: [62. Search in Rotated Sorted Array](./Lintcode-Python/62.py)
 * 難題：切割長度不等的木頭，找木頭的最大長度: [183. Wood Cut](./Lintcode-Python/183.py)
 
-### Breadth First Search
+### <span style="color:Coral">Breadth First Search</span>
 拿來找最短路徑的演算法
 
 <img src = './bfs/jupyter.jpg' width = '40%'>  
@@ -230,14 +241,57 @@ while q:
 
 <img src = './img/DFSvsBFS.jpg' width = '60%'>  
 
-### Depth First Search
+### <span style="color:Coral">Depth First Search</span>
 1. 可以用recursion實現
 2. 也可以不用遞歸函數，自己通過一個手動創建的stack進行操作
-3. 一定會使用到backtracking，到最深層的之後，會回朔到上一層
+3. 一定會使用到backtracking，到最深層的之後，會回朔到上一層 
 
-* 遍歷法(Traversal)和分治法(Divide and Conquer):
-遍歷法: 親力親為，拿著一個記事本走片所有節點
+<span style="color:IndianRed">遍歷法(Traversal)和分治法(Divide and Conquer):</span>
+
+遍歷法: 親力親為，拿著一個記事本走片所有節點 
+1. 先序遍歷pre-order
+2. 中序遍歷in-order：請把第二種解法背起來：[86. Binary Search Tree Iterator](./Lintcode-Python/86.py)
+3. 後序遍歷post-order
+
+把中序遍歷背起來：
+```py
+class BSTIterator:
+    """
+    @param: root: The root of binary tree.
+    """
+    def __init__(self, root):
+        # do intialization if necessary
+        self.stack = []
+        # root非空就要一直往左子樹下挖
+        self.find_most_left(root)
+
+    def find_most_left(self, node):
+        while node:
+            self.stack.append(node)
+            node = node.left
+    
+    """
+    @return: True if there has next node, or false
+    """
+    def hasNext(self):
+        # 當stack為空，表示沒有next node
+        return bool(self.stack)
+    """
+    @return: return next node
+    """
+    def _next(self):
+        # 直接pop
+        node = self.stack.pop
+        # 若右子數非空
+        if node.right:
+            self.find_most_left(node.right)
+        return node
+```
+
+
 分治法: 分配小弟去做子任務，自己金行結果匯總
+
+* [480. Binary Tree Paths](./Lintcode-Python/480.py)
 
 Binary Tree的分治法模板：
 
@@ -259,7 +313,10 @@ def divideConquer(self, root):
     return 整棵樹的結果
 ```
 
-### Recursion
+
+
+
+### <span style="color:Coral">Recursion</span>
 遞歸四要素
 1. 遞歸的定義
 2. 遞歸的分解
@@ -281,3 +338,4 @@ def a(n):
 * [binary tree(preorder + recursion)](./Leetcode-Python/104.py)  
 * [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)
 * [Classical Binary Search](./Lintcode-Python/457.py)
+* [480. Binary Tree Paths](./Lintcode-Python/480.py)
