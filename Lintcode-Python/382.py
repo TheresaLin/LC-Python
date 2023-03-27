@@ -16,7 +16,7 @@ class Solution:
         # 因為題目問的是有幾組且可重複，所以答案只要記下有幾組就行
         ans = 0
         s.sort()
-        # 找大數並設為target，並且把小數和中數的index傳給function
+        # 找大數並設為target，並且把小數left和中數right的index傳給function
         for i in range(2, len(s)):
             left = 0
             right = i - 1

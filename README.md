@@ -29,7 +29,7 @@ O(log n):
 * 相向：
 Time:O(n)
     1. Reverse: 題目不多
-    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[382. Triangle Count](./Lintcode-Python/382.py)
+    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[382. Triangle Count](./Lintcode-Python/382.py)、[58. 4Sum](./Lintcode-Python/58.py)
     3. Partition(兩位數相關變形題)：
 ```py
 left, right = 0, len(s)-1
@@ -67,20 +67,38 @@ space: O(1)
 <img src = './img/quick_sort.png'> 
 
 
+
 ### <span style="color:Coral">Partition</span>：
 
 * [31. Partition Array](./Lintcode-Python/31.py)
+* partition + merge sort: [143. Sort Colors II](./Lintcode-Python/143.py)
+
+```py
+while left <= right:
+    while left <= right and nums[left]應該在左側:
+        left += 1
+    while left <= right and nums[right]應該在右側:
+        right -= 1
+    
+    if left <= right:
+        # 找到了一個不該在左側和不該在右側的，交換他們
+        nums[left], nums[right] = nums[right], nums[left]
+        left += 1
+        right -= 1 
+```
 
 <img src = './img/partition.png'> 
+
+
 
 
 ### <span style="color:Coral">Quick Sort (Partition)</span>：
 time: O(NlogK)
 space: O(logK)
-類似於快速排序，差別在於：quick sort的中間值是<span style="color:green">index/2</span>，partition是 <span style="color:green">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
+類似於快速排序，差別在於：quick sort的中間值是<span style="color:green">index/2</span>，partition是<span style="color:green">組個數/2</span>，用於組的排序/分類，所以時間複雜度為O(NlogK)
 
 顏色分類：
-* [143. Sort Colors II](./Lintcode-Python/143.py)
+
 * [正負數交錯](./Lintcode-Python/144.py)
 
 
@@ -216,28 +234,20 @@ class Solution:
 <img src = './bfs/jupyter.jpg' width = '40%'>  
 
 ```py
-d = [0]* 8    #d是存到從start到自己的距離 array8個位置從0開始
-q = []        #q是存目前要拜訪得節點
-visited = set()
-q.append(n1)
-visited.add(n1)
-while q:
-    head = q[0]
-    print('name: ', head.name)
-    if head == n7:
-        return d[7]
-    len_q = len(q)
-    q.pop(0)
-    for k in range(len_q):
-        for i in head.neighbor:
-            if i not in visited:
-                q.append(i)
-                visited.add(i)
-                d[i.name] = d[head.name] +1
+# 用deque做queue時間複雜度比較好
+queue = deque([root])
+while queue:
+    for _ in range(len(queue)):
+        node = queue.popleft()
+        node_val = node.val
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
 ```
 
 * [bfs的基本練習](./bfs/bfs.ipynb)
-* 有單隊列、雙隊列、DummyNode的解法：[69. Binary Tree Level Order Traversal](./Lintcode-Python/69.py)
+* 有單隊列、雙隊列、DummyNode的解法：[69. Binary Tree Level Order Traversal](./Lintcode-Python/69.py)、[2583. Kth Largest Sum in a Binary Tree](./Lintcode-Python/2583.py)
 
 <img src = './img/DFSvsBFS.jpg' width = '60%'>  
 
@@ -339,3 +349,7 @@ def a(n):
 * [Fibonacci number(滾動數組優化)](./Leetcode-Python/509.py)
 * [Classical Binary Search](./Lintcode-Python/457.py)
 * [480. Binary Tree Paths](./Lintcode-Python/480.py)
+
+
+Bloomberg題目：
+Mathmatics：[1887. Stretch Word](./Lintcode-Python/1887.py)

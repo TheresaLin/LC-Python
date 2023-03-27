@@ -1,4 +1,4 @@
-# 31. Partition Array:把小於k放左邊，大於k放右邊
+# 31. Partition Array:把小於k放左邊，大於k放右邊，回傳k第一次出現的index
 # time:O(N), space:O(1)
 
 from typing import (

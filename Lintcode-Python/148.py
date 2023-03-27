@@ -1,4 +1,4 @@
-# 148. Sort Colors
+# # 148. Sort Colors
 
 from typing import (
     List,
@@ -38,3 +38,6 @@ class Solution:
         # 退出循環後，left本來在左邊現在到右邊，right也是從右邊到左邊
         self.quick_sort(nums, start, right)
         self.quick_sort(nums, left, end)
+
+sol = Solution()
+print(sol.sort_colors([0,1,2,0,2,1,1,1,0,2,1,1,2,2,2,1]))
