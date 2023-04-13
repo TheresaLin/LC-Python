@@ -29,7 +29,7 @@ O(log n):
 * 相向：
 Time:O(n)
     1. Reverse: 題目不多
-    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[382. Triangle Count](./Lintcode-Python/382.py)、[58. 4Sum](./Lintcode-Python/58.py)
+    2. Two Sum(兩位數相關變形題)：[125. Valid Palindrome](./Leetcode-Python/125.py)（判斷是否為回文串、[1. Two Sum](./Leetcode-Python/1.py)、[57. 3Sum](./Lintcode-Python/57.py)、[382. Triangle Count](./Lintcode-Python/382.py)、[58. 4Sum](./Lintcode-Python/58.py)、[167. Two Sum II - Input Array Is Sorted](./Leetcode-Python/167.py)、[633. Sum of Square Numbers](./Leetcode-Python/633.py)
     3. Partition(兩位數相關變形題)：
 ```py
 left, right = 0, len(s)-1
